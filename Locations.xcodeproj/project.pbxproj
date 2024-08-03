@@ -11,6 +11,8 @@
 		BD026C4C2C5E914300C5287D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD026C4B2C5E914300C5287D /* ContentView.swift */; };
 		BD026C4E2C5E914400C5287D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD026C4D2C5E914400C5287D /* Assets.xcassets */; };
 		BD026C512C5E914400C5287D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD026C502C5E914400C5287D /* Preview Assets.xcassets */; };
+		BD026C742C5E92B500C5287D /* RemoteLocationsServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD026C732C5E92B500C5287D /* RemoteLocationsServiceTests.swift */; };
+		BD026C772C5E954D00C5287D /* URLProtocolMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD026C762C5E954D00C5287D /* URLProtocolMock.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -30,6 +32,8 @@
 		BD026C4D2C5E914400C5287D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BD026C502C5E914400C5287D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		BD026C562C5E914400C5287D /* LocationsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LocationsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BD026C732C5E92B500C5287D /* RemoteLocationsServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteLocationsServiceTests.swift; sourceTree = "<group>"; };
+		BD026C762C5E954D00C5287D /* URLProtocolMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLProtocolMock.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,8 +94,18 @@
 		BD026C592C5E914400C5287D /* LocationsTests */ = {
 			isa = PBXGroup;
 			children = (
+				BD026C752C5E952400C5287D /* Helpers */,
+				BD026C732C5E92B500C5287D /* RemoteLocationsServiceTests.swift */,
 			);
 			path = LocationsTests;
+			sourceTree = "<group>";
+		};
+		BD026C752C5E952400C5287D /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				BD026C762C5E954D00C5287D /* URLProtocolMock.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -147,6 +161,7 @@
 					};
 					BD026C552C5E914400C5287D = {
 						CreatedOnToolsVersion = 15.3;
+						LastSwiftMigration = 1530;
 						TestTargetID = BD026C452C5E914300C5287D;
 					};
 				};
@@ -203,6 +218,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BD026C742C5E92B500C5287D /* RemoteLocationsServiceTests.swift in Sources */,
+				BD026C772C5E954D00C5287D /* URLProtocolMock.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -399,6 +416,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = YYAZ4HHX7J;
@@ -408,6 +426,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.mohammedalwaili.LocationsTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Locations.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Locations";
@@ -419,6 +438,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = YYAZ4HHX7J;

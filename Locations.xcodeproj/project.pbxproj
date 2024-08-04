@@ -13,6 +13,10 @@
 		BD026C512C5E914400C5287D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD026C502C5E914400C5287D /* Preview Assets.xcassets */; };
 		BD026C742C5E92B500C5287D /* RemoteLocationsServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD026C732C5E92B500C5287D /* RemoteLocationsServiceTests.swift */; };
 		BD026C772C5E954D00C5287D /* URLProtocolMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD026C762C5E954D00C5287D /* URLProtocolMock.swift */; };
+		BD026C7A2C5EABD800C5287D /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD026C792C5EABD800C5287D /* Location.swift */; };
+		BD026C7C2C5EABE100C5287D /* Coordinates.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD026C7B2C5EABE100C5287D /* Coordinates.swift */; };
+		BD026C802C5EAC8D00C5287D /* GitHubAPIConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD026C7F2C5EAC8D00C5287D /* GitHubAPIConfig.swift */; };
+		BD026C822C5EACC100C5287D /* RemoteLocationsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD026C812C5EACC100C5287D /* RemoteLocationsService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +38,10 @@
 		BD026C562C5E914400C5287D /* LocationsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LocationsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD026C732C5E92B500C5287D /* RemoteLocationsServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteLocationsServiceTests.swift; sourceTree = "<group>"; };
 		BD026C762C5E954D00C5287D /* URLProtocolMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLProtocolMock.swift; sourceTree = "<group>"; };
+		BD026C792C5EABD800C5287D /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		BD026C7B2C5EABE100C5287D /* Coordinates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinates.swift; sourceTree = "<group>"; };
+		BD026C7F2C5EAC8D00C5287D /* GitHubAPIConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubAPIConfig.swift; sourceTree = "<group>"; };
+		BD026C812C5EACC100C5287D /* RemoteLocationsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteLocationsService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +83,9 @@
 		BD026C482C5E914300C5287D /* Locations */ = {
 			isa = PBXGroup;
 			children = (
+				BD026C7E2C5EAC7700C5287D /* Network */,
+				BD026C7D2C5EAC1A00C5287D /* Services */,
+				BD026C782C5EABC700C5287D /* Models */,
 				BD026C492C5E914300C5287D /* LocationsApp.swift */,
 				BD026C4B2C5E914300C5287D /* ContentView.swift */,
 				BD026C4D2C5E914400C5287D /* Assets.xcassets */,
@@ -106,6 +117,31 @@
 				BD026C762C5E954D00C5287D /* URLProtocolMock.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		BD026C782C5EABC700C5287D /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				BD026C792C5EABD800C5287D /* Location.swift */,
+				BD026C7B2C5EABE100C5287D /* Coordinates.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		BD026C7D2C5EAC1A00C5287D /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				BD026C812C5EACC100C5287D /* RemoteLocationsService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		BD026C7E2C5EAC7700C5287D /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				BD026C7F2C5EAC8D00C5287D /* GitHubAPIConfig.swift */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -210,7 +246,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				BD026C4C2C5E914300C5287D /* ContentView.swift in Sources */,
+				BD026C802C5EAC8D00C5287D /* GitHubAPIConfig.swift in Sources */,
+				BD026C7A2C5EABD800C5287D /* Location.swift in Sources */,
 				BD026C4A2C5E914300C5287D /* LocationsApp.swift in Sources */,
+				BD026C822C5EACC100C5287D /* RemoteLocationsService.swift in Sources */,
+				BD026C7C2C5EABE100C5287D /* Coordinates.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

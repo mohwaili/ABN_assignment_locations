@@ -6,69 +6,7 @@
 //
 
 import XCTest
-
-struct Coordinates {
-    let latitude: Double
-    let longitude: Double
-}
-
-struct Location: Decodable {
-    let name: String
-    let coordinates: Coordinates
-    
-    enum CodingKeys: String, CodingKey {
-        case name
-        case latitude = "lat"
-        case longitude = "long"
-        case coordinates
-    }
-    
-    init(from decoder: any Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self)
-        let latitude = try container.decode(Double.self, forKey: .latitude)
-        let longitude = try container.decode(Double.self, forKey: .longitude)
-        self.name = try container.decodeIfPresent(String.self, forKey: .name) ?? "Unknown location"
-        self.coordinates = Coordinates(latitude: latitude, longitude: longitude)
-    }
-}
-
-protocol LocationsService {
-    func fetch() async throws -> [Location]
-}
-
-enum RemoteLocationsServiceError: Error {
-    case invalidURL
-}
-
-struct GitHubAPI {
-    static let urlString = "https://raw.githubusercontent.com/abnamrocoesd/assignment-ios/main/locations.json"
-}
-
-final class RemoteLocationsService: LocationsService {
-    
-    struct Response: Decodable {
-        let locations: [Location]
-    }
-    
-    private let urlSession: URLSession
-    private let urlString: String
-    
-    init(urlSession: URLSession,
-         urlString: String) {
-        self.urlSession = urlSession
-        self.urlString = urlString
-    }
-    
-    func fetch() async throws -> [Location] {
-        guard let url = URL(string: urlString) else {
-            throw RemoteLocationsServiceError.invalidURL
-        }
-        let (data, _) = try await urlSession.data(from: url)
-        let result = try JSONDecoder().decode(Response.self, from: data)
-        
-        return result.locations
-    }
-}
+@testable import Locations
 
 final class RemoteLocationsServiceTests: XCTestCase {
     
@@ -168,7 +106,7 @@ final class RemoteLocationsServiceTests: XCTestCase {
         let responseData = try XCTUnwrap(json.data(using: .utf8))
         URLProtocolMock.requestHandler = { request in
             let response = HTTPURLResponse(
-                url: URL(string: GitHubAPI.urlString)!,
+                url: URL(string: GitHubAPIConfig.urlString)!,
                 statusCode: 200,
                 httpVersion: nil,
                 headerFields: ["Content-Type": "application/json"]
@@ -185,7 +123,7 @@ final class RemoteLocationsServiceTests: XCTestCase {
 private extension RemoteLocationsServiceTests {
     
     func makeSUT(
-        urlString: String = GitHubAPI.urlString,
+        urlString: String = GitHubAPIConfig.urlString,
         file: StaticString = #file,
         line: UInt = #line
     ) -> LocationsService {

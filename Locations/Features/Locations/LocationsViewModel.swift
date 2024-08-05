@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Combine
 
 @MainActor
 final class LocationsViewModel: ObservableObject {
@@ -18,30 +19,46 @@ final class LocationsViewModel: ObservableObject {
     
     typealias Scheme = String
     
-    private let locationsService: LocationsService
+    private let service: LocationsService
     private let coordinator: Coordinator
     private let appInstalledChecker: (Scheme) -> Bool
     
+    private var cancellables: Set<AnyCancellable> = Set()
+    
     @Published private(set) var state = State.loading
     @Published var wikipediaNotInstalledErrorShown: Bool = false
+    @Published var searchText: String = ""
+    @Published var searchIsBeingUsed = false
     
     init(
-        locationsService: LocationsService,
+        service: LocationsService,
         coordinator: Coordinator,
         appInstalledChecker: @escaping (Scheme) -> Bool
     ) {
-        self.locationsService = locationsService
+        self.service = service
         self.coordinator = coordinator
         self.appInstalledChecker = appInstalledChecker
+        
+        $searchText
+            .dropFirst()
+            .removeDuplicates()
+            .debounce(for: 0.5, scheduler: DispatchQueue.main)
+            .asyncMap({ [weak service] text in
+                return (try? await service?.fetchLocations(searchText: text)) ?? []
+            })
+            .subscribe(on: DispatchQueue.main)
+            .receive(on: DispatchQueue.main)
+            .sink(receiveValue: { [weak self] locations in
+                self?.state = .data(locations: locations.map { $0.toViewModel() })
+            })
+            .store(in: &cancellables)
     }
     
     func onLoad() async {
         state = .loading
         do {
-            let viewModels = try await locationsService.fetch().map {
-                LocationViewModel(name: $0.name, coordinates: $0.coordinates)
-            }
-            state = .data(locations: viewModels)
+            let locations = try await service.fetchLocations()
+            state = .data(locations: locations.map { $0.toViewModel() })
         } catch {
             state = .error
         }
@@ -60,5 +77,18 @@ final class LocationsViewModel: ObservableObject {
     
     func hideWikipediaNotInstalledAlert() {
         wikipediaNotInstalledErrorShown = false
+    }
+}
+
+private extension Location {
+    
+    func toViewModel() -> LocationViewModel {
+        .init(
+            name: self.name,
+            coordinates: .init(
+                latitude: self.coordinates.latitude,
+                longitude: self.coordinates.longitude
+            )
+        )
     }
 }

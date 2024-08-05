@@ -42,6 +42,11 @@ struct LocationsView<MapContent: View>: View {
 
                     }
                 )
+                .searchable(
+                    text: $viewModel.searchText,
+                    isPresented: $viewModel.searchIsBeingUsed,
+                    prompt: "search_prompt"
+                )
         case .error:
             Text("locations_fetch_failed".localized())
         }
@@ -67,7 +72,7 @@ struct LocationsView<MapContent: View>: View {
 }
 
 #Preview {
-    struct PreviewLocationsService: LocationsService {
+    struct PreviewLocationsService: FetchLocationsService {
         func fetch() async throws -> [Location] {
             [
                 .init(
@@ -92,10 +97,17 @@ struct LocationsView<MapContent: View>: View {
     }
     return LocationsView(
         viewModel: LocationsViewModel(
-            locationsService: PreviewLocationsService(),
+            service: LocationsService(
+                fetchLocationsService: PreviewLocationsService(),
+                searchLocationsService: GeocoderSearchLocationsService()
+            ),
             coordinator: PreviewCoordinator(),
-            appInstalledChecker: { _ in true }
+            appInstalledChecker: {
+                _ in true
+            }
         ),
-        mapContentProvider: { _, _ in Color.primary }
+        mapContentProvider: {
+            _, _ in Color.primary
+        }
     )
 }

@@ -40,6 +40,12 @@
 		BD0FF6BB2C61589600C0DAD4 /* LocationsRTLSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD0FF6BA2C61589600C0DAD4 /* LocationsRTLSnapshotTests.swift */; };
 		BD0FF6BC2C6159F900C0DAD4 /* XCTestCase+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD0FF6A22C61417F00C0DAD4 /* XCTestCase+Extensions.swift */; };
 		BD0FF6BD2C6159FD00C0DAD4 /* Location+Mocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD0FF6A92C614E8D00C0DAD4 /* Location+Mocks.swift */; };
+		BDA6BE022C616430007EF468 /* SearchLocationsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA6BE012C616430007EF468 /* SearchLocationsService.swift */; };
+		BDA6BE042C616BD3007EF468 /* Publisher+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA6BE032C616BD3007EF468 /* Publisher+Extension.swift */; };
+		BDA6BE062C616E11007EF468 /* LocationsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA6BE052C616E11007EF468 /* LocationsService.swift */; };
+		BDA6BE082C617328007EF468 /* Mocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA6BE072C617328007EF468 /* Mocks.swift */; };
+		BDA6BE092C617357007EF468 /* Mocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA6BE072C617328007EF468 /* Mocks.swift */; };
+		BDA6BE0A2C617365007EF468 /* LocationViewModel+Mocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD0FF6A72C614E0400C0DAD4 /* LocationViewModel+Mocks.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -93,6 +99,10 @@
 		BD0FF6A92C614E8D00C0DAD4 /* Location+Mocks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Location+Mocks.swift"; sourceTree = "<group>"; };
 		BD0FF6AF2C61584800C0DAD4 /* LocationsRTLTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LocationsRTLTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD0FF6BA2C61589600C0DAD4 /* LocationsRTLSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationsRTLSnapshotTests.swift; sourceTree = "<group>"; };
+		BDA6BE012C616430007EF468 /* SearchLocationsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchLocationsService.swift; sourceTree = "<group>"; };
+		BDA6BE032C616BD3007EF468 /* Publisher+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Publisher+Extension.swift"; sourceTree = "<group>"; };
+		BDA6BE052C616E11007EF468 /* LocationsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationsService.swift; sourceTree = "<group>"; };
+		BDA6BE072C617328007EF468 /* Mocks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mocks.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -186,6 +196,7 @@
 				BD0FF6A22C61417F00C0DAD4 /* XCTestCase+Extensions.swift */,
 				BD0FF6A72C614E0400C0DAD4 /* LocationViewModel+Mocks.swift */,
 				BD0FF6A92C614E8D00C0DAD4 /* Location+Mocks.swift */,
+				BDA6BE072C617328007EF468 /* Mocks.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -204,6 +215,7 @@
 			isa = PBXGroup;
 			children = (
 				BD026C812C5EACC100C5287D /* RemoteLocationsService.swift */,
+				BDA6BE012C616430007EF468 /* SearchLocationsService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -229,6 +241,7 @@
 			isa = PBXGroup;
 			children = (
 				BD026CB62C5FD13300C5287D /* LocationsCoordinator.swift */,
+				BDA6BE052C616E11007EF468 /* LocationsService.swift */,
 				BD026CAB2C5FB1C900C5287D /* LocationsView.swift */,
 				BD026CA22C5FA45200C5287D /* LocationsViewModel.swift */,
 				BD026CA12C5FA43F00C5287D /* Components */,
@@ -268,6 +281,7 @@
 			children = (
 				BD026CAF2C5FCAAE00C5287D /* String+Localized.swift */,
 				BD026CB82C5FD40300C5287D /* View+Extensions.swift */,
+				BDA6BE032C616BD3007EF468 /* Publisher+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -458,6 +472,7 @@
 			files = (
 				BD026CBC2C5FD43C00C5287D /* ViewDidLoadModifier.swift in Sources */,
 				BD026CB52C5FD08E00C5287D /* AppCoordinator.swift in Sources */,
+				BDA6BE062C616E11007EF468 /* LocationsService.swift in Sources */,
 				BD026CA52C5FA46D00C5287D /* LocationView.swift in Sources */,
 				BD026CBE2C5FF02C00C5287D /* Coordinates+Wikipedia.swift in Sources */,
 				BD026C802C5EAC8D00C5287D /* GitHubAPIConfig.swift in Sources */,
@@ -468,9 +483,11 @@
 				BD026CB32C5FD01900C5287D /* Coordinator.swift in Sources */,
 				BD026CB72C5FD13300C5287D /* LocationsCoordinator.swift in Sources */,
 				BD026C822C5EACC100C5287D /* RemoteLocationsService.swift in Sources */,
+				BDA6BE022C616430007EF468 /* SearchLocationsService.swift in Sources */,
 				BD026CB92C5FD40300C5287D /* View+Extensions.swift in Sources */,
 				BD026CAC2C5FB1C900C5287D /* LocationsView.swift in Sources */,
 				BD026CA82C5FA48800C5287D /* LocationViewModel.swift in Sources */,
+				BDA6BE042C616BD3007EF468 /* Publisher+Extension.swift in Sources */,
 				BD026C7C2C5EABE100C5287D /* Coordinates.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -484,6 +501,7 @@
 				BD0FF6A12C613F4F00C0DAD4 /* LocationsSnapshotTests.swift in Sources */,
 				BD0FF69C2C612C7A00C0DAD4 /* URLSessionMock.swift in Sources */,
 				BD026C742C5E92B500C5287D /* RemoteLocationsServiceTests.swift in Sources */,
+				BDA6BE082C617328007EF468 /* Mocks.swift in Sources */,
 				BD0FF69A2C612B4C00C0DAD4 /* LocationsIntegrationTests.swift in Sources */,
 				BD0FF6A32C61417F00C0DAD4 /* XCTestCase+Extensions.swift in Sources */,
 				BD026C772C5E954D00C5287D /* URLProtocolMock.swift in Sources */,
@@ -495,8 +513,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				BD0FF6BD2C6159FD00C0DAD4 /* Location+Mocks.swift in Sources */,
+				BDA6BE0A2C617365007EF468 /* LocationViewModel+Mocks.swift in Sources */,
 				BD0FF6BC2C6159F900C0DAD4 /* XCTestCase+Extensions.swift in Sources */,
 				BD0FF6BB2C61589600C0DAD4 /* LocationsRTLSnapshotTests.swift in Sources */,
+				BDA6BE092C617357007EF468 /* Mocks.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

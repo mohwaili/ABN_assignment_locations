@@ -159,11 +159,15 @@ final class LocationsRTLSnapshotTests: XCTestCase {
         error: Error? = nil,
         locations: [Location] = []
     ) async -> LocationsViewModel {
-        let service = LocationsServiceMock()
-        service.fetchError = error
-        service.fetchReturnValue = locations
+        let fetchLocationsServiceMock = FetchLocationsServiceMock()
+        fetchLocationsServiceMock.fetchError = error
+        fetchLocationsServiceMock.fetchReturnValue = locations
+        let service = LocationsService(
+            fetchLocationsService: fetchLocationsServiceMock,
+            searchLocationsService: SearchLocationsServiceMock()
+        )
         let viewModel = LocationsViewModel(
-            locationsService: service,
+            service: service,
             coordinator: CoordinatorMock(),
             appInstalledChecker: { _ in false }
         )
@@ -172,7 +176,7 @@ final class LocationsRTLSnapshotTests: XCTestCase {
     }
 }
 
-fileprivate class LocationsServiceMock: LocationsService {
+fileprivate class LocationsServiceMock: FetchLocationsService {
     
     var fetchError: Error?
     var fetchReturnValue: [Location] = []

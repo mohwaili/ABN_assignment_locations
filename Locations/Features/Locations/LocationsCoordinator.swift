@@ -13,12 +13,16 @@ final class LocationsCoordinator: Coordinator {
     
     var content: some View {
         let viewModel = LocationsViewModel(
-            locationsService: RemoteLocationsService(
-                urlSession: .shared,
-                urlString: GitHubAPIConfig.urlString
+            service: LocationsService(
+                fetchLocationsService: RemoteLocationsService(
+                    urlSession: .shared,
+                    urlString: GitHubAPIConfig.urlString
+                ),
+                searchLocationsService: GeocoderSearchLocationsService()
             ),
             coordinator: self,
-            appInstalledChecker: { scheme in
+            appInstalledChecker: {
+                scheme in
                 if let url = URL(string: scheme) {
                     return  UIApplication.shared.canOpenURL(url)
                 }

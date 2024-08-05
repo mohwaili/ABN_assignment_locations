@@ -164,6 +164,23 @@
         }
       }
     },
+    "search_prompt" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ادخل اسم المكان"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Enter a location name"
+          }
+        }
+      }
+    },
     "wikipedia_not_installed_alert_title" : {
       "extractionState" : "manual",
       "localizations" : {

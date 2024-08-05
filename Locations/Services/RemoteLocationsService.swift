@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol LocationsService {
+protocol FetchLocationsService {
     func fetch() async throws -> [Location]
 }
 
@@ -15,7 +15,7 @@ enum RemoteLocationsServiceError: Error {
     case invalidURL
 }
 
-final class RemoteLocationsService: LocationsService {
+final class RemoteLocationsService: FetchLocationsService {
     
     struct Response: Decodable {
         let locations: [Location]

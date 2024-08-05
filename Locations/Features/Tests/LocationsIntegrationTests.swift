@@ -46,31 +46,24 @@ final class LocationsIntegrationTests: XCTestCase {
     
     @MainActor
     func test_onLoad_stateData() async throws {
-        let json = """
-        {
-            "locations": [
-                {
-                    "name": "Amsterdam",
-                    "lat": 52.3547498,
-                    "long": 4.8339215
-                },
-                {
-                    "lat": 40.4380638,
-                    "long": -3.7495758
-                }
-            ]
-        }
-        """
-        let responseData = try XCTUnwrap(json.data(using: .utf8))
-        URLProtocolMock.requestHandler = { request in
-            let response = HTTPURLResponse(
-                url: URL(string: GitHubAPIConfig.urlString)!,
-                statusCode: 200,
-                httpVersion: nil,
-                headerFields: ["Content-Type": "application/json"]
-            )!
-            return (response, responseData)
-        }
+        try stubFetchLocations(with:
+            """
+            {
+                "locations": [
+                    {
+                        "name": "Amsterdam",
+                        "lat": 52.3547498,
+                        "long": 4.8339215
+                    },
+                    {
+                        "lat": 40.4380638,
+                        "long": -3.7495758
+                    }
+                ]
+            }
+            """
+        )
+        
         let components = makeComponents()
         let expectation = expectation(description: "wait for load")
         expectation.expectedFulfillmentCount = 2
@@ -110,12 +103,54 @@ final class LocationsIntegrationTests: XCTestCase {
     }
     
     @MainActor
+    func test_onSearchTextChange_searchsForLocations() async throws {
+        try stubFetchLocations(with:
+            """
+            {
+                "locations": [
+                    {
+                        "name": "Amsterdam",
+                        "lat": 52.3547498,
+                        "long": 4.8339215
+                    },
+                    {
+                        "lat": 40.4380638,
+                        "long": -3.7495758
+                    }
+                ]
+            }
+            """
+        )
+        let expectation = expectation(description: "")
+        let components = makeComponents()
+        components.searchLocationService.searchReturnValue = [
+            .mumbai
+        ]
+        
+        await components.sut.onLoad()
+        
+        components.sut.$searchText
+            .dropFirst()
+            .debounce(for: 0.5, scheduler: DispatchQueue.main)
+            .sink { _ in
+                expectation.fulfill()
+            }
+            .store(in: &cancellables)
+        components.sut.searchText = "mumbai"
+        
+        await fulfillment(of: [expectation], timeout: 5.0)
+        XCTAssertEqual(components.sut.state, .data(locations: [
+            .mumbai
+        ]))
+    }
+    
+    @MainActor
     func test_onTapLocation_showsWikipediaNotInstalledError() async {
         let components = makeComponents(wikipediaAppInstalled: false)
         
         XCTAssertFalse(components.sut.wikipediaNotInstalledErrorShown)
         
-        components.sut.onTapLocation(.amsterdam)
+        components.sut.onTapLocation(LocationViewModel.amsterdam)
         
         XCTAssertTrue(components.sut.wikipediaNotInstalledErrorShown)
         XCTAssertFalse(components.coordinator.coordinateCalled)
@@ -127,7 +162,7 @@ final class LocationsIntegrationTests: XCTestCase {
         
         XCTAssertFalse(components.sut.wikipediaNotInstalledErrorShown)
         
-        components.sut.onTapLocation(.amsterdam)
+        components.sut.onTapLocation(LocationViewModel.amsterdam)
         
         XCTAssertTrue(components.sut.wikipediaNotInstalledErrorShown)
         
@@ -140,25 +175,30 @@ final class LocationsIntegrationTests: XCTestCase {
     func test_onTapLocation_opensDeeplink() async {
         let components = makeComponents(wikipediaAppInstalled: true)
         
-        components.sut.onTapLocation(.amsterdam)
+        components.sut.onTapLocation(LocationViewModel.amsterdam)
         
         XCTAssertFalse(components.sut.wikipediaNotInstalledErrorShown)
     }
     
-    fileprivate typealias Components = (
+    private typealias Components = (
         sut: LocationsViewModel,
-        coordinator: CoordinatorMock
+        coordinator: CoordinatorMock,
+        searchLocationService: SearchLocationsServiceMock
     )
     
     @MainActor
-    fileprivate func makeComponents(wikipediaAppInstalled: Bool = true) -> Components {
-        let service = RemoteLocationsService(
-            urlSession: makeURLSessionMock(),
-            urlString: GitHubAPIConfig.urlString
+    private func makeComponents(wikipediaAppInstalled: Bool = true) -> Components {
+        let searchLocationService = SearchLocationsServiceMock()
+        let service = LocationsService(
+            fetchLocationsService: RemoteLocationsService(
+                urlSession: makeURLSessionMock(),
+                urlString: GitHubAPIConfig.urlString
+            ),
+            searchLocationsService: searchLocationService
         )
         let coordinator = CoordinatorMock()
         let sut = LocationsViewModel(
-            locationsService: service,
+            service: service,
             coordinator: coordinator,
             appInstalledChecker: { _ in wikipediaAppInstalled }
         )
@@ -173,7 +213,20 @@ final class LocationsIntegrationTests: XCTestCase {
             XCTAssertNil(sut)
         }
         
-        return (sut, coordinator)
+        return (sut, coordinator, searchLocationService)
+    }
+    
+    private func stubFetchLocations(with json: String) throws {
+        let responseData = try XCTUnwrap(json.data(using: .utf8))
+        URLProtocolMock.requestHandler = { request in
+            let response = HTTPURLResponse(
+                url: URL(string: GitHubAPIConfig.urlString)!,
+                statusCode: 200,
+                httpVersion: nil,
+                headerFields: ["Content-Type": "application/json"]
+            )!
+            return (response, responseData)
+        }
     }
 }
 

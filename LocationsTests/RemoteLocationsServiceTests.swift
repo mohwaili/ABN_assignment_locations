@@ -126,7 +126,7 @@ private extension RemoteLocationsServiceTests {
         urlString: String = GitHubAPIConfig.urlString,
         file: StaticString = #file,
         line: UInt = #line
-    ) -> LocationsService {
+    ) -> FetchLocationsService {
         let sut = RemoteLocationsService(
             urlSession: makeURLSessionMock(),
             urlString: urlString

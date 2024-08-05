@@ -31,6 +31,11 @@
 		BD0FF69A2C612B4C00C0DAD4 /* LocationsIntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD0FF6992C612B4C00C0DAD4 /* LocationsIntegrationTests.swift */; };
 		BD0FF69C2C612C7A00C0DAD4 /* URLSessionMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD0FF69B2C612C7A00C0DAD4 /* URLSessionMock.swift */; };
 		BD0FF69E2C61397700C0DAD4 /* Locations.xctestplan in Resources */ = {isa = PBXBuildFile; fileRef = BD0FF69D2C61397700C0DAD4 /* Locations.xctestplan */; };
+		BD0FF6A12C613F4F00C0DAD4 /* LocationsSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD0FF6A02C613F4F00C0DAD4 /* LocationsSnapshotTests.swift */; };
+		BD0FF6A32C61417F00C0DAD4 /* XCTestCase+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD0FF6A22C61417F00C0DAD4 /* XCTestCase+Extensions.swift */; };
+		BD0FF6A62C61441D00C0DAD4 /* SnapshotTesting in Frameworks */ = {isa = PBXBuildFile; productRef = BD0FF6A52C61441D00C0DAD4 /* SnapshotTesting */; };
+		BD0FF6A82C614E0400C0DAD4 /* LocationViewModel+Mocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD0FF6A72C614E0400C0DAD4 /* LocationViewModel+Mocks.swift */; };
+		BD0FF6AA2C614E8D00C0DAD4 /* Location+Mocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD0FF6A92C614E8D00C0DAD4 /* Location+Mocks.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +76,10 @@
 		BD0FF6992C612B4C00C0DAD4 /* LocationsIntegrationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationsIntegrationTests.swift; sourceTree = "<group>"; };
 		BD0FF69B2C612C7A00C0DAD4 /* URLSessionMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionMock.swift; sourceTree = "<group>"; };
 		BD0FF69D2C61397700C0DAD4 /* Locations.xctestplan */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Locations.xctestplan; sourceTree = "<group>"; };
+		BD0FF6A02C613F4F00C0DAD4 /* LocationsSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationsSnapshotTests.swift; sourceTree = "<group>"; };
+		BD0FF6A22C61417F00C0DAD4 /* XCTestCase+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+Extensions.swift"; sourceTree = "<group>"; };
+		BD0FF6A72C614E0400C0DAD4 /* LocationViewModel+Mocks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LocationViewModel+Mocks.swift"; sourceTree = "<group>"; };
+		BD0FF6A92C614E8D00C0DAD4 /* Location+Mocks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Location+Mocks.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +94,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BD0FF6A62C61441D00C0DAD4 /* SnapshotTesting in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -98,6 +108,7 @@
 				BD026C482C5E914300C5287D /* Locations */,
 				BD026C592C5E914400C5287D /* LocationsTests */,
 				BD026C472C5E914300C5287D /* Products */,
+				BD0FF6A42C61441D00C0DAD4 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -149,6 +160,9 @@
 			children = (
 				BD026C762C5E954D00C5287D /* URLProtocolMock.swift */,
 				BD0FF69B2C612C7A00C0DAD4 /* URLSessionMock.swift */,
+				BD0FF6A22C61417F00C0DAD4 /* XCTestCase+Extensions.swift */,
+				BD0FF6A72C614E0400C0DAD4 /* LocationViewModel+Mocks.swift */,
+				BD0FF6A92C614E8D00C0DAD4 /* Location+Mocks.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -256,8 +270,16 @@
 			isa = PBXGroup;
 			children = (
 				BD0FF6992C612B4C00C0DAD4 /* LocationsIntegrationTests.swift */,
+				BD0FF6A02C613F4F00C0DAD4 /* LocationsSnapshotTests.swift */,
 			);
 			path = Tests;
+			sourceTree = "<group>";
+		};
+		BD0FF6A42C61441D00C0DAD4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -294,6 +316,9 @@
 				BD026C582C5E914400C5287D /* PBXTargetDependency */,
 			);
 			name = LocationsTests;
+			packageProductDependencies = (
+				BD0FF6A52C61441D00C0DAD4 /* SnapshotTesting */,
+			);
 			productName = LocationsTests;
 			productReference = BD026C562C5E914400C5287D /* LocationsTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -328,6 +353,9 @@
 				ar,
 			);
 			mainGroup = BD026C3D2C5E914300C5287D;
+			packageReferences = (
+				BD0FF69F2C613F2100C0DAD4 /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */,
+			);
 			productRefGroup = BD026C472C5E914300C5287D /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -387,9 +415,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BD0FF6AA2C614E8D00C0DAD4 /* Location+Mocks.swift in Sources */,
+				BD0FF6A82C614E0400C0DAD4 /* LocationViewModel+Mocks.swift in Sources */,
+				BD0FF6A12C613F4F00C0DAD4 /* LocationsSnapshotTests.swift in Sources */,
 				BD0FF69C2C612C7A00C0DAD4 /* URLSessionMock.swift in Sources */,
 				BD026C742C5E92B500C5287D /* RemoteLocationsServiceTests.swift in Sources */,
 				BD0FF69A2C612B4C00C0DAD4 /* LocationsIntegrationTests.swift in Sources */,
+				BD0FF6A32C61417F00C0DAD4 /* XCTestCase+Extensions.swift in Sources */,
 				BD026C772C5E954D00C5287D /* URLProtocolMock.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -658,6 +690,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		BD0FF69F2C613F2100C0DAD4 /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pointfreeco/swift-snapshot-testing.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.17.3;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		BD0FF6A52C61441D00C0DAD4 /* SnapshotTesting */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BD0FF69F2C613F2100C0DAD4 /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */;
+			productName = SnapshotTesting;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = BD026C3E2C5E914300C5287D /* Project object */;
 }

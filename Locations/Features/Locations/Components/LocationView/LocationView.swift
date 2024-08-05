@@ -57,12 +57,17 @@ struct LocationView: View {
         )
     }
     
+    @ViewBuilder
     private var map: some View {
-        Map(
-            position: .constant(.region(region)),
-            interactionModes: []
-        ) {
-            Marker("", coordinate: coordinates2D)
+        if isRunningTests {
+            Color.primary
+        } else {
+            Map(
+                position: .constant(.region(region)),
+                interactionModes: []
+            ) {
+                Marker("", coordinate: coordinates2D)
+            }
         }
     }
     

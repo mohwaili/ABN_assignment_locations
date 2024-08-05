@@ -177,18 +177,6 @@ final class LocationsIntegrationTests: XCTestCase {
     }
 }
 
-fileprivate extension LocationViewModel {
-    static var amsterdam: LocationViewModel {
-        .init(
-            name: "Amsterdam",
-            coordinates: .init(
-                latitude: 52.3547498,
-                longitude: 4.8339215
-            )
-        )
-    }
-}
-
 private class CoordinatorMock: Coordinator {
     
     var coordinateCalled: Bool {

@@ -33,6 +33,9 @@
             reference = "container:Locations.xctestplan"
             default = "YES">
          </TestPlanReference>
+         <TestPlanReference
+            reference = "container:RTL.xctestplan">
+         </TestPlanReference>
       </TestPlans>
       <Testables>
          <TestableReference
@@ -43,6 +46,17 @@
                BlueprintIdentifier = "BD026C552C5E914400C5287D"
                BuildableName = "LocationsTests.xctest"
                BlueprintName = "LocationsTests"
+               ReferencedContainer = "container:Locations.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO"
+            parallelizable = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "BD0FF6AE2C61584800C0DAD4"
+               BuildableName = "LocationsRTLTests.xctest"
+               BlueprintName = "LocationsRTLTests"
                ReferencedContainer = "container:Locations.xcodeproj">
             </BuildableReference>
          </TestableReference>

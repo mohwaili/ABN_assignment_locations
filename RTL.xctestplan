@@ -1,0 +1,31 @@
+{
+  "configurations" : [
+    {
+      "id" : "38E466F7-8902-487C-A365-B02B269F3F39",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "commandLineArgumentEntries" : [
+      {
+        "argument" : "isTesting"
+      }
+    ],
+    "language" : "ar",
+    "region" : "IQ",
+    "testTimeoutsEnabled" : true
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:Locations.xcodeproj",
+        "identifier" : "BD0FF6AE2C61584800C0DAD4",
+        "name" : "LocationsRTLTests"
+      }
+    }
+  ],
+  "version" : 1
+}

@@ -8,9 +8,10 @@
 import SwiftUI
 import MapKit
 
-struct LocationView: View {
+struct LocationView<MapContent: View>: View {
     
     let viewModel: LocationViewModel
+    let mapContentProvider: (MKCoordinateRegion, CLLocationCoordinate2D) -> MapContent
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -59,16 +60,7 @@ struct LocationView: View {
     
     @ViewBuilder
     private var map: some View {
-        if isRunningTests {
-            Color.primary
-        } else {
-            Map(
-                position: .constant(.region(region)),
-                interactionModes: []
-            ) {
-                Marker("", coordinate: coordinates2D)
-            }
-        }
+        mapContentProvider(region, coordinates2D)
     }
     
     private var locationText: some View {
@@ -103,7 +95,8 @@ fileprivate let coordinates = Coordinates(
         viewModel: LocationViewModel(
             name: "Amsterdam",
             coordinates: coordinates
-        )
+        ),
+        mapContentProvider: { _, _ in Color.primary }
     )
         .preferredColorScheme(.light)
 }
@@ -113,7 +106,8 @@ fileprivate let coordinates = Coordinates(
         viewModel: LocationViewModel(
             name: "Amsterdam",
             coordinates: coordinates
-        )
+        ),
+        mapContentProvider: { _, _ in Color.primary }
     )
         .preferredColorScheme(.dark)
 }
@@ -123,7 +117,8 @@ fileprivate let coordinates = Coordinates(
         viewModel: LocationViewModel(
             name: "Amsterdam",
             coordinates: coordinates
-        )
+        ),
+        mapContentProvider: { _, _ in Color.primary }
     )
         .dynamicTypeSize(.xxxLarge)
 }
@@ -133,7 +128,8 @@ fileprivate let coordinates = Coordinates(
         viewModel: LocationViewModel(
             name: "Amsterdam",
             coordinates: coordinates
-        )
+        ),
+        mapContentProvider: { _, _ in Color.primary }
     )
     .environment(\.layoutDirection, .rightToLeft)
 }

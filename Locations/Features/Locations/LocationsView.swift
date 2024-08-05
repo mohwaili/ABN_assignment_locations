@@ -6,10 +6,12 @@
 //
 
 import SwiftUI
+import MapKit
 
-struct LocationsView: View {
+struct LocationsView<MapContent: View>: View {
     
     @ObservedObject var viewModel: LocationsViewModel
+    let mapContentProvider: (MKCoordinateRegion, CLLocationCoordinate2D) -> MapContent
     
     var body: some View {
         content
@@ -49,13 +51,15 @@ struct LocationsView: View {
         ScrollView {
             LazyVStack {
                 ForEach(locationViewModels, id: \.id) { locationViewModel in
-                    LocationView(viewModel: locationViewModel)
-                        .accessibilityAction(named: Text("a11y_location_item_action".localized(arguments: locationViewModel.name)), {
-                            viewModel.onTapLocation(locationViewModel)
-                        })
-                        .onTapGesture {
-                            viewModel.onTapLocation(locationViewModel)
-                        }
+                    LocationView(viewModel: locationViewModel, mapContentProvider: {
+                        mapContentProvider($0, $1)
+                    })
+                    .accessibilityAction(named: Text("a11y_location_item_action".localized(arguments: locationViewModel.name)), {
+                        viewModel.onTapLocation(locationViewModel)
+                    })
+                    .onTapGesture {
+                        viewModel.onTapLocation(locationViewModel)
+                    }
                 }
             }
         }
@@ -91,6 +95,7 @@ struct LocationsView: View {
             locationsService: PreviewLocationsService(),
             coordinator: PreviewCoordinator(),
             appInstalledChecker: { _ in true }
-        )
+        ),
+        mapContentProvider: { _, _ in Color.primary }
     )
 }

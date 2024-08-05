@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import MapKit
 
 @MainActor
 final class LocationsCoordinator: Coordinator {
@@ -24,7 +25,14 @@ final class LocationsCoordinator: Coordinator {
                 return false
             }
         )
-        return LocationsView(viewModel: viewModel)
+        return LocationsView(viewModel: viewModel) { region, coordinates in
+            Map(
+                position: .constant(.region(region)),
+                interactionModes: []
+            ) {
+                Marker("", coordinate: coordinates)
+            }
+        }
     }
     
 }

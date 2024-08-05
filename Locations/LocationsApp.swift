@@ -7,12 +7,6 @@
 
 import SwiftUI
 
-#if DEBUG
-let isRunningTests = CommandLine.arguments.contains(where: { $0 == "isTesting" })
-#else
-let isRunningTests = false
-#endif
-
 @main
 struct LocationsApp: App {
     
@@ -20,7 +14,7 @@ struct LocationsApp: App {
     
     var body: some Scene {
         WindowGroup {
-            if isRunningTests {
+            if CommandLine.arguments.contains(where: { $0 == "isTesting" }) {
                 Text("")
             } else {
                 AppCoordinator(path: $path) {

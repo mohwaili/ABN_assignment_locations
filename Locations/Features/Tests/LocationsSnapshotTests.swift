@@ -27,7 +27,8 @@ final class LocationsSnapshotTests: XCTestCase {
                     domain: "LocationsSnapshotTests",
                     code: 0
                 )
-            )
+            ),
+            mapContentProvider: { _, _ in Color.primary }
         )
         assertSnapshot(
             of: host(view),
@@ -45,7 +46,8 @@ final class LocationsSnapshotTests: XCTestCase {
                     domain: "LocationsSnapshotTests",
                     code: 0
                 )
-            )
+            ),
+            mapContentProvider: { _, _ in Color.primary }
         )
         assertSnapshot(
             of: host(view),
@@ -64,7 +66,8 @@ final class LocationsSnapshotTests: XCTestCase {
                     domain: "LocationsSnapshotTests",
                     code: 0
                 )
-            )
+            ),
+            mapContentProvider: { _, _ in Color.primary }
         )
         assertSnapshot(
             of: host(view),
@@ -84,7 +87,8 @@ final class LocationsSnapshotTests: XCTestCase {
                     .mumbai,
                     .unknown
                 ]
-            )
+            ),
+            mapContentProvider: { _, _ in Color.primary }
         )
         assertSnapshot(
             of: host(view),
@@ -103,7 +107,8 @@ final class LocationsSnapshotTests: XCTestCase {
                     .mumbai,
                     .unknown
                 ]
-            )
+            ),
+            mapContentProvider: { _, _ in Color.primary }
         )
         assertSnapshot(
             of: host(view),
@@ -123,7 +128,8 @@ final class LocationsSnapshotTests: XCTestCase {
                     .mumbai,
                     .unknown
                 ]
-            )
+            ),
+            mapContentProvider: { _, _ in Color.primary }
         )
         assertSnapshot(
             of: host(view),

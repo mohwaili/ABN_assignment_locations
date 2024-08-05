@@ -93,7 +93,7 @@ final class RemoteLocationsServiceTests: XCTestCase {
         XCTAssertEqual(locations[0].coordinates.latitude, 52.3547498)
         XCTAssertEqual(locations[0].coordinates.longitude, 4.8339215)
         
-        XCTAssertEqual(locations[1].name, "Unknown location")
+        XCTAssertNil(locations[1].name)
         XCTAssertEqual(locations[1].coordinates.latitude, 40.4380638)
         XCTAssertEqual(locations[1].coordinates.longitude, -3.7495758)
     }
@@ -135,11 +135,5 @@ private extension RemoteLocationsServiceTests {
             XCTAssertNil(sut, file: file, line: line)
         }
         return sut
-    }
-    
-    func makeURLSessionMock() -> URLSession {
-        let configuration = URLSessionConfiguration.ephemeral
-        configuration.protocolClasses = [URLProtocolMock.self]
-        return URLSession(configuration: configuration)
     }
 }

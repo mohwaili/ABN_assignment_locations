@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		BD026C4A2C5E914300C5287D /* LocationsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD026C492C5E914300C5287D /* LocationsApp.swift */; };
-		BD026C4C2C5E914300C5287D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD026C4B2C5E914300C5287D /* ContentView.swift */; };
 		BD026C4E2C5E914400C5287D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD026C4D2C5E914400C5287D /* Assets.xcassets */; };
 		BD026C512C5E914400C5287D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD026C502C5E914400C5287D /* Preview Assets.xcassets */; };
 		BD026C742C5E92B500C5287D /* RemoteLocationsServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD026C732C5E92B500C5287D /* RemoteLocationsServiceTests.swift */; };
@@ -17,6 +16,21 @@
 		BD026C7C2C5EABE100C5287D /* Coordinates.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD026C7B2C5EABE100C5287D /* Coordinates.swift */; };
 		BD026C802C5EAC8D00C5287D /* GitHubAPIConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD026C7F2C5EAC8D00C5287D /* GitHubAPIConfig.swift */; };
 		BD026C822C5EACC100C5287D /* RemoteLocationsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD026C812C5EACC100C5287D /* RemoteLocationsService.swift */; };
+		BD026CA32C5FA45200C5287D /* LocationsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD026CA22C5FA45200C5287D /* LocationsViewModel.swift */; };
+		BD026CA52C5FA46D00C5287D /* LocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD026CA42C5FA46D00C5287D /* LocationView.swift */; };
+		BD026CA82C5FA48800C5287D /* LocationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD026CA72C5FA48800C5287D /* LocationViewModel.swift */; };
+		BD026CAA2C5FAC5900C5287D /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = BD026CA92C5FAC5900C5287D /* Localizable.xcstrings */; };
+		BD026CAC2C5FB1C900C5287D /* LocationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD026CAB2C5FB1C900C5287D /* LocationsView.swift */; };
+		BD026CB02C5FCAAE00C5287D /* String+Localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD026CAF2C5FCAAE00C5287D /* String+Localized.swift */; };
+		BD026CB32C5FD01900C5287D /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD026CB22C5FD01900C5287D /* Coordinator.swift */; };
+		BD026CB52C5FD08E00C5287D /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD026CB42C5FD08E00C5287D /* AppCoordinator.swift */; };
+		BD026CB72C5FD13300C5287D /* LocationsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD026CB62C5FD13300C5287D /* LocationsCoordinator.swift */; };
+		BD026CB92C5FD40300C5287D /* View+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD026CB82C5FD40300C5287D /* View+Extensions.swift */; };
+		BD026CBC2C5FD43C00C5287D /* ViewDidLoadModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD026CBB2C5FD43C00C5287D /* ViewDidLoadModifier.swift */; };
+		BD026CBE2C5FF02C00C5287D /* Coordinates+Wikipedia.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD026CBD2C5FF02C00C5287D /* Coordinates+Wikipedia.swift */; };
+		BD0FF69A2C612B4C00C0DAD4 /* LocationsIntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD0FF6992C612B4C00C0DAD4 /* LocationsIntegrationTests.swift */; };
+		BD0FF69C2C612C7A00C0DAD4 /* URLSessionMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD0FF69B2C612C7A00C0DAD4 /* URLSessionMock.swift */; };
+		BD0FF69E2C61397700C0DAD4 /* Locations.xctestplan in Resources */ = {isa = PBXBuildFile; fileRef = BD0FF69D2C61397700C0DAD4 /* Locations.xctestplan */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,7 +46,6 @@
 /* Begin PBXFileReference section */
 		BD026C462C5E914300C5287D /* Locations.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Locations.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD026C492C5E914300C5287D /* LocationsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationsApp.swift; sourceTree = "<group>"; };
-		BD026C4B2C5E914300C5287D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		BD026C4D2C5E914400C5287D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BD026C502C5E914400C5287D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		BD026C562C5E914400C5287D /* LocationsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LocationsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -42,6 +55,22 @@
 		BD026C7B2C5EABE100C5287D /* Coordinates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinates.swift; sourceTree = "<group>"; };
 		BD026C7F2C5EAC8D00C5287D /* GitHubAPIConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubAPIConfig.swift; sourceTree = "<group>"; };
 		BD026C812C5EACC100C5287D /* RemoteLocationsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteLocationsService.swift; sourceTree = "<group>"; };
+		BD026CA22C5FA45200C5287D /* LocationsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationsViewModel.swift; sourceTree = "<group>"; };
+		BD026CA42C5FA46D00C5287D /* LocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationView.swift; sourceTree = "<group>"; };
+		BD026CA72C5FA48800C5287D /* LocationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewModel.swift; sourceTree = "<group>"; };
+		BD026CA92C5FAC5900C5287D /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
+		BD026CAB2C5FB1C900C5287D /* LocationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationsView.swift; sourceTree = "<group>"; };
+		BD026CAF2C5FCAAE00C5287D /* String+Localized.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Localized.swift"; sourceTree = "<group>"; };
+		BD026CB22C5FD01900C5287D /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		BD026CB42C5FD08E00C5287D /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		BD026CB62C5FD13300C5287D /* LocationsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationsCoordinator.swift; sourceTree = "<group>"; };
+		BD026CB82C5FD40300C5287D /* View+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extensions.swift"; sourceTree = "<group>"; };
+		BD026CBB2C5FD43C00C5287D /* ViewDidLoadModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewDidLoadModifier.swift; sourceTree = "<group>"; };
+		BD026CBD2C5FF02C00C5287D /* Coordinates+Wikipedia.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Coordinates+Wikipedia.swift"; sourceTree = "<group>"; };
+		BD026CBF2C60099D00C5287D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		BD0FF6992C612B4C00C0DAD4 /* LocationsIntegrationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationsIntegrationTests.swift; sourceTree = "<group>"; };
+		BD0FF69B2C612C7A00C0DAD4 /* URLSessionMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionMock.swift; sourceTree = "<group>"; };
+		BD0FF69D2C61397700C0DAD4 /* Locations.xctestplan */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Locations.xctestplan; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +94,7 @@
 		BD026C3D2C5E914300C5287D = {
 			isa = PBXGroup;
 			children = (
+				BD0FF69D2C61397700C0DAD4 /* Locations.xctestplan */,
 				BD026C482C5E914300C5287D /* Locations */,
 				BD026C592C5E914400C5287D /* LocationsTests */,
 				BD026C472C5E914300C5287D /* Products */,
@@ -83,13 +113,16 @@
 		BD026C482C5E914300C5287D /* Locations */ = {
 			isa = PBXGroup;
 			children = (
+				BD026CBF2C60099D00C5287D /* Info.plist */,
+				BD026CAD2C5FCA9000C5287D /* Common */,
+				BD026C9F2C5FA41500C5287D /* Features */,
 				BD026C7E2C5EAC7700C5287D /* Network */,
 				BD026C7D2C5EAC1A00C5287D /* Services */,
 				BD026C782C5EABC700C5287D /* Models */,
 				BD026C492C5E914300C5287D /* LocationsApp.swift */,
-				BD026C4B2C5E914300C5287D /* ContentView.swift */,
 				BD026C4D2C5E914400C5287D /* Assets.xcassets */,
 				BD026C4F2C5E914400C5287D /* Preview Content */,
+				BD026CA92C5FAC5900C5287D /* Localizable.xcstrings */,
 			);
 			path = Locations;
 			sourceTree = "<group>";
@@ -115,6 +148,7 @@
 			isa = PBXGroup;
 			children = (
 				BD026C762C5E954D00C5287D /* URLProtocolMock.swift */,
+				BD0FF69B2C612C7A00C0DAD4 /* URLSessionMock.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -124,6 +158,7 @@
 			children = (
 				BD026C792C5EABD800C5287D /* Location.swift */,
 				BD026C7B2C5EABE100C5287D /* Coordinates.swift */,
+				BD026CBD2C5FF02C00C5287D /* Coordinates+Wikipedia.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -142,6 +177,87 @@
 				BD026C7F2C5EAC8D00C5287D /* GitHubAPIConfig.swift */,
 			);
 			path = Network;
+			sourceTree = "<group>";
+		};
+		BD026C9F2C5FA41500C5287D /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				BD026CA02C5FA42200C5287D /* Locations */,
+				BD0FF6982C612B2900C0DAD4 /* Tests */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
+		BD026CA02C5FA42200C5287D /* Locations */ = {
+			isa = PBXGroup;
+			children = (
+				BD026CB62C5FD13300C5287D /* LocationsCoordinator.swift */,
+				BD026CAB2C5FB1C900C5287D /* LocationsView.swift */,
+				BD026CA22C5FA45200C5287D /* LocationsViewModel.swift */,
+				BD026CA12C5FA43F00C5287D /* Components */,
+			);
+			path = Locations;
+			sourceTree = "<group>";
+		};
+		BD026CA12C5FA43F00C5287D /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				BD026CA62C5FA47500C5287D /* LocationView */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		BD026CA62C5FA47500C5287D /* LocationView */ = {
+			isa = PBXGroup;
+			children = (
+				BD026CA42C5FA46D00C5287D /* LocationView.swift */,
+				BD026CA72C5FA48800C5287D /* LocationViewModel.swift */,
+			);
+			path = LocationView;
+			sourceTree = "<group>";
+		};
+		BD026CAD2C5FCA9000C5287D /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				BD026CBA2C5FD42E00C5287D /* ViewModifiers */,
+				BD026CB12C5FD00100C5287D /* Coordinator */,
+				BD026CAE2C5FCA9C00C5287D /* Extensions */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		BD026CAE2C5FCA9C00C5287D /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				BD026CAF2C5FCAAE00C5287D /* String+Localized.swift */,
+				BD026CB82C5FD40300C5287D /* View+Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		BD026CB12C5FD00100C5287D /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				BD026CB22C5FD01900C5287D /* Coordinator.swift */,
+				BD026CB42C5FD08E00C5287D /* AppCoordinator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		BD026CBA2C5FD42E00C5287D /* ViewModifiers */ = {
+			isa = PBXGroup;
+			children = (
+				BD026CBB2C5FD43C00C5287D /* ViewDidLoadModifier.swift */,
+			);
+			path = ViewModifiers;
+			sourceTree = "<group>";
+		};
+		BD0FF6982C612B2900C0DAD4 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				BD0FF6992C612B4C00C0DAD4 /* LocationsIntegrationTests.swift */,
+			);
+			path = Tests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -209,6 +325,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ar,
 			);
 			mainGroup = BD026C3D2C5E914300C5287D;
 			productRefGroup = BD026C472C5E914300C5287D /* Products */;
@@ -228,6 +345,7 @@
 			files = (
 				BD026C512C5E914400C5287D /* Preview Assets.xcassets in Resources */,
 				BD026C4E2C5E914400C5287D /* Assets.xcassets in Resources */,
+				BD026CAA2C5FAC5900C5287D /* Localizable.xcstrings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -235,6 +353,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BD0FF69E2C61397700C0DAD4 /* Locations.xctestplan in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -245,11 +364,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BD026C4C2C5E914300C5287D /* ContentView.swift in Sources */,
+				BD026CBC2C5FD43C00C5287D /* ViewDidLoadModifier.swift in Sources */,
+				BD026CB52C5FD08E00C5287D /* AppCoordinator.swift in Sources */,
+				BD026CA52C5FA46D00C5287D /* LocationView.swift in Sources */,
+				BD026CBE2C5FF02C00C5287D /* Coordinates+Wikipedia.swift in Sources */,
 				BD026C802C5EAC8D00C5287D /* GitHubAPIConfig.swift in Sources */,
 				BD026C7A2C5EABD800C5287D /* Location.swift in Sources */,
+				BD026CA32C5FA45200C5287D /* LocationsViewModel.swift in Sources */,
+				BD026CB02C5FCAAE00C5287D /* String+Localized.swift in Sources */,
 				BD026C4A2C5E914300C5287D /* LocationsApp.swift in Sources */,
+				BD026CB32C5FD01900C5287D /* Coordinator.swift in Sources */,
+				BD026CB72C5FD13300C5287D /* LocationsCoordinator.swift in Sources */,
 				BD026C822C5EACC100C5287D /* RemoteLocationsService.swift in Sources */,
+				BD026CB92C5FD40300C5287D /* View+Extensions.swift in Sources */,
+				BD026CAC2C5FB1C900C5287D /* LocationsView.swift in Sources */,
+				BD026CA82C5FA48800C5287D /* LocationViewModel.swift in Sources */,
 				BD026C7C2C5EABE100C5287D /* Coordinates.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -258,7 +387,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BD0FF69C2C612C7A00C0DAD4 /* URLSessionMock.swift in Sources */,
 				BD026C742C5E92B500C5287D /* RemoteLocationsServiceTests.swift in Sources */,
+				BD0FF69A2C612B4C00C0DAD4 /* LocationsIntegrationTests.swift in Sources */,
 				BD026C772C5E954D00C5287D /* URLProtocolMock.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -404,6 +535,7 @@
 				DEVELOPMENT_TEAM = YYAZ4HHX7J;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Locations/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -433,6 +565,7 @@
 				DEVELOPMENT_TEAM = YYAZ4HHX7J;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Locations/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

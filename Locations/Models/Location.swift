@@ -8,7 +8,7 @@
 import Foundation
 
 struct Location: Decodable {
-    let name: String
+    let name: String?
     let coordinates: Coordinates
     
     enum CodingKeys: String, CodingKey {
@@ -22,7 +22,12 @@ struct Location: Decodable {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         let latitude = try container.decode(Double.self, forKey: .latitude)
         let longitude = try container.decode(Double.self, forKey: .longitude)
-        self.name = try container.decodeIfPresent(String.self, forKey: .name) ?? "Unknown location"
+        self.name = try container.decodeIfPresent(String.self, forKey: .name)
         self.coordinates = Coordinates(latitude: latitude, longitude: longitude)
+    }
+    
+    init(name: String?, coordinates: Coordinates) {
+        self.name = name
+        self.coordinates = coordinates
     }
 }

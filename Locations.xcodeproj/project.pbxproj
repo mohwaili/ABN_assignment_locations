@@ -138,7 +138,6 @@
 				BD0FF69D2C61397700C0DAD4 /* Locations.xctestplan */,
 				BD026C482C5E914300C5287D /* Locations */,
 				BD026C592C5E914400C5287D /* LocationsTests */,
-				BD0FF6B02C61584800C0DAD4 /* LocationsRTLTests */,
 				BD026C472C5E914300C5287D /* Products */,
 				BD0FF6A42C61441D00C0DAD4 /* Frameworks */,
 			);
@@ -318,13 +317,6 @@
 			children = (
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		BD0FF6B02C61584800C0DAD4 /* LocationsRTLTests */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = LocationsRTLTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
